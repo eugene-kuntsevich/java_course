@@ -29,7 +29,7 @@ public class Recurse
 	private static int readNumberFromConsole()
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		String inputString = "";
+		String inputString;
 		int number = 0;
 		try
 		{
