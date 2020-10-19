@@ -13,7 +13,7 @@ public enum DaysOfWeek
 		this.workingHours = workingHours;
 	}
 
-	public static int getRemainingWorkingHours(DaysOfWeek daysOfWeek)
+	public static int getRemainingWorkingHours(DaysOfWeek daysOfWeek) throws DayNotFoundException
 	{
 		switch (daysOfWeek)
 		{
@@ -28,10 +28,11 @@ public enum DaysOfWeek
 			case FRIDAY:
 				return FRIDAY.workingHours + getRemainingWorkingHours(SATURDAY);
 			case SATURDAY:
-				return SATURDAY.workingHours + getRemainingWorkingHours(SUNDAY);
+				return SATURDAY.workingHours;
+			/* удалил SUNDAY из списка
 			case SUNDAY:
-				return SUNDAY.workingHours;
+				return SUNDAY.workingHours;*/
 		}
-		return 0;
+		throw new DayNotFoundException(String.format("Day with name %s was not find", daysOfWeek.name()));
 	}
 }
