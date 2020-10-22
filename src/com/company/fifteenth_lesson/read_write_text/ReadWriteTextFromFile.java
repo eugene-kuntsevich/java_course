@@ -7,7 +7,7 @@ public class ReadWriteTextFromFile
 {
 	public static void main(String[] args) throws IOException
 	{
-		FileWriter writer = new FileWriter("D:/123.txt", true);
+		FileWriter writer = new FileWriter("D:/123.txt", false);
 		try
 		{
 			// запись всей строки
@@ -15,7 +15,6 @@ public class ReadWriteTextFromFile
 			writer.write(text);
 			// запись по символам
 			writer.append('\n');
-			writer.append('E');
 
 			writer.flush();
 		}
